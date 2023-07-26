@@ -20,41 +20,25 @@ export const Navbar = () => {
 						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Star_Wars_-_The_Last_Jedi_logo.png/800px-Star_Wars_-_The_Last_Jedi_logo.png?20201015132623" />
 					</Link>
 					<div className="dropdown">
-						<button
-							className="btn dropdown-toggle "
-							type="button"
-							data-bs-toggle="dropdown"
-							aria-expanded="false"
-						>
-							Favorites ({store.favorites.length})
-						</button>
-						<ul className="dropdown-menu dropdown-menu-end">
-							{store.favorites.length === 0 ? (
-								<li className="dropdown-item">None</li>
-							) : (
-								store.favorites.map((byeFav) => (
-									<li key={byeFav.id}>
-										<div className="item-container">
-											<Link
-												to={`/${byeFav.class}/${byeFav.id}/${byeFav.name}`}
-											>
-												{byeFav.name}
-											</Link>
+						<a className="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+							Favorites {store.favorites.length}
+						</a>
 
-											<button
-												onClick={(e) => handleDeleteFavorites(
-													e, byeFav.name
-												)
-												}
-											>
-												<i className="fa-solid fa-trash "></i>
-											</button>
-										</div>
+						<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<li className="dropdown-item">None</li>
+							{store.favorites.map((value, index) => {
+								return (
+									<li key={index}>
+										<a className="dropdown-item d-flex " href="#">
+											{value}
+											<i className=" btn fas fa-trash-alt" onClick={() => actions.deleteFavorite(index)}></i>
+										</a>
 									</li>
-								))
-							)}
+								);
+							})}
 						</ul>
 					</div>
+
 				</div>
 			</nav>
 		</>

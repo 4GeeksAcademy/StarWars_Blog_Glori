@@ -9,22 +9,7 @@ const Characters = () => {
     const { store, actions } = useContext(Context);
     return (
         <>
-            {/* <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block w-100" src="..." alt="First slide" />
-                    </div>
-                </div>
-                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </a>
-                
-            </div> */}
+
             <div className="text-center" style={{ background: "#000000" }}>
                 <div className='d-inline-flex'>
                     {store.charactersSW.map((value, id) => (
@@ -39,7 +24,13 @@ const Characters = () => {
                                     <Link to={`/character-description/${id + 1}`}>
                                         <button href="#" className="btn btn-outline-danger col-6"> Learn more! </button>
                                     </Link>
-                                    <button className="btn btn-outline-danger">♡</button>
+                                    <button className="btn btn-outline-danger" onClick={() => {
+                                        if (!store.favorites.includes(value.name)) {
+                                            actions.addFavorite(value.name);
+                                        }
+                                    }}> {
+                                            store.favorites.includes(value.name) ? <img className='fullheart' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/800px-Heart_coraz%C3%B3n.svg.png' /> : <img className='borderheart' src='https://assets.stickpng.com/images/5a02bfca18e87004f1ca4395.png' />
+                                        }</button>
                                 </div>
                             </div>
                         </div>

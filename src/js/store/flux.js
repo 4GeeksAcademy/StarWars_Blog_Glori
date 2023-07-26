@@ -91,12 +91,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
 					.then(response => response.json())
 					.then((data) => {
+						console.log(data);
 						setStore({ vehiclesDesc: data.result.properties });
 					})
 					.catch(err => err)
 			},
-			myFavorites: (fav) => {
-				setStore({ favorites: fav })
+			addFavorite: (select) => {
+				setStore({ favorites: [...getStore().favorites, select] });
+				console.log(getStore().favorites);
+			},
+
+			deleteFavorite: (selected) => {
+				setStore({
+					favorites: getStore().favorites.filter((value, index) => index !== selected)
+				});
 			},
 		}
 	};
