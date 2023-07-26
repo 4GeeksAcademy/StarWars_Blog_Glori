@@ -1,3 +1,59 @@
 /* 
     General Styles
 */
+
+.navbar button, #dropdown{
+    background-color: rgb(247, 0, 0);
+    color: rgb(238, 234, 228);
+}
+.navbar img{
+    width: 17%;
+}
+.card{
+    background:rgb(41, 38, 44);
+    color: white;
+    -webkit-box-shadow:0px 0px 63px 0px rgba(255,46,46,0.9);
+-moz-box-shadow: 0px 0px 63px 0px rgba(255,46,46,0.9);
+box-shadow: 0px 0px 63px 0px rgba(255,46,46,0.9);
+padding: 10px;
+margin: 60px;
+}
+.container h1{
+    color: rgb(255, 255, 255);
+    margin-left: 0%;
+    padding: 5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.footer{
+    background: rgba(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+#text-center{
+    margin: 20%;
+}
+.arrowsCh img{
+    width: 10%;
+    
+}
+.arrowsPl img{
+    width: 10%;
+    margin-top: 15px;
+}
+.jumbotron .container{
+    background: rgb(10, 10, 10, 0.9);
+    color: rgb(255, 255, 255);
+}
+
+.jumbotron img{
+    width: 500px;
+}
+.jumbotron h1{
+    margin-left: 50%;
+}
+.fullheart{
+    width: 15px;
+}
+.borderheart{
+    width: 15px;
+}

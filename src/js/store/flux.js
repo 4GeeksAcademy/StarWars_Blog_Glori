@@ -12,7 +12,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			charactersSW: [],
+			characterDesc: [],
+			planetsSW: [],
+			planetsDesc: [],
+			vehicleSW: [],
+			vehiclesDesc: [],
+			favorites: []
+
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +46,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			fetchVehiclesSW: () => {
+				fetch("https://www.swapi.tech/api/vehicles")
+					.then(response => response.json())
+					.then(data => {
+						setStore({ vehicleSW: data.results })
+					})
+					.catch(err => err)
+			},
+			fetchCharactersSW: () => {
+				fetch("https://www.swapi.tech/api/people")
+					.then(response => response.json())
+					.then(data => {
+						setStore({ charactersSW: data.results })
+					})
+					.catch(err => err)
+			},
+			fetchPlanetsSW: () => {
+				fetch("https://www.swapi.tech/api/planets")
+					.then(response => response.json())
+					.then(data => {
+						setStore({ planetsSW: data.results })
+					})
+					.catch(err => err)
+			},
+			fetchcharacterDesc: (id) => {
+				fetch(`https://www.swapi.tech/api/people/${id}`)
+					.then(response => response.json())
+					.then((data) => {
+						setStore({ characterDesc: data.result.properties });
+					})
+					.catch(err => err)
+			},
+			fetchplanetsDesc: (id) => {
+				fetch(`https://www.swapi.tech/api/planets/${id}`)
+					.then(response => response.json())
+					.then((data) => {
+						setStore({ planetsDesc: data.result.properties });
+					})
+					.catch(err => err)
+			},
+			fetchvehiclesDesc: (id) => {
+				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+					.then(response => response.json())
+					.then((data) => {
+						setStore({ vehiclesDesc: data.result.properties });
+					})
+					.catch(err => err)
+			},
+			myFavorites: (fav) => {
+				setStore({ favorites: fav })
+			},
 		}
 	};
 };
