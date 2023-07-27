@@ -25,14 +25,15 @@ export const Navbar = () => {
 						</a>
 
 						<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<li className="dropdown-item">None</li>
 							{store.favorites.map((value, index) => {
 								return (
 									<li key={index}>
-										<a className="dropdown-item d-flex " href="#">
-											{value}
-											<i className=" btn fas fa-trash-alt" onClick={() => actions.deleteFavorite(index)}></i>
-										</a>
+										{
+											store.favorites.length === 0 ? <a className="dropdown-item">Empty</a> : <a className="dropdown-item d-flex " href="#">
+												{value}
+												<i className=" btn fas fa-trash-alt" onClick={() => actions.deleteFavorite(index)}></i>
+											</a>
+										}
 									</li>
 								);
 							})}

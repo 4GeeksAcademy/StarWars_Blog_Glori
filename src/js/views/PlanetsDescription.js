@@ -18,10 +18,15 @@ const PlanetsDescription = props => {
                 <main className="container">
                     <section className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
-                            <img className="img"
-                                src={`https://starwars-visualguide.com/assets/img/planets/${params.theid}.jpg`}
+                            {
 
-                            />
+                                params.theid == 1 ? <img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ed97b542-8697-4d5c-a783-0dd8185c89d0/d15sn9h-b91d0d97-8378-4b8c-b943-dd1b39a21a84.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VkOTdiNTQyLTg2OTctNGQ1Yy1hNzgzLTBkZDgxODVjODlkMFwvZDE1c245aC1iOTFkMGQ5Ny04Mzc4LTRiOGMtYjk0My1kZDFiMzlhMjFhODQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.TbpQRH5usavAhtJl_KJ7Tg7eyJBgiVM7fwz7iddfc_4' />
+                                    : <img className="img"
+                                        src={`https://starwars-visualguide.com/assets/img/planets/${params.theid}.jpg`}
+
+                                    />
+                            }
+
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                             <h1 className="mt-5" style={{ float: "right" }}>{properties.name}</h1>

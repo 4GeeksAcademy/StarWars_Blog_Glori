@@ -19,7 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetsDesc: [],
 			vehicleSW: [],
 			vehiclesDesc: [],
-			favorites: []
+			favorites: [],
+			vehicleuid: []
 
 
 		},
@@ -52,6 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => {
 						setStore({ vehicleSW: data.results })
+						setStore({ vehicleuid: data.results.uid })
 					})
 					.catch(err => err)
 			},
@@ -87,8 +89,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(err => err)
 			},
-			fetchvehiclesDesc: (id) => {
-				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+			fetchvehiclesDesc: (vehicleuid) => {
+				fetch(`https://www.swapi.tech/api/vehicles/${vehicleuid}`)
 					.then(response => response.json())
 					.then((data) => {
 						console.log(data);

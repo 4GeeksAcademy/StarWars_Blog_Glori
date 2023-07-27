@@ -9,6 +9,7 @@ const VehiclesDescription = props => {
     const { store, actions } = useContext(Context);
     const params = useParams();
     const properties = store.vehiclesDesc;
+    const uid = store.vehicleuid;
     useEffect(() => {
         actions.fetchvehiclesDesc(params.theid)
     }, [])

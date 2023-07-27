@@ -19,53 +19,19 @@ export const Home = () => {
                     <h1>Characters</h1>
                 </div>
                 <div className="charactersRow" >
-                    {
-                        <>
-                            <Characters />
-                            <span className="arrowsCh">
-                                <img src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-rouge.png" onClick={
-                                    () => {
-                                        let width = box.clientWidth;
-                                        box.scrolleft = box.scrolleft - width;
-                                    }
-                                } />
-                                <img style={{ float: "right" }} src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-droite-rouge.png" onClick={
-                                    () => {
-                                        let width = box.clientWidth;
-                                        box.scrolleft = box.scrolleft + width;
-                                    }
-                                } />
-                            </span>
-                        </>
-                    }
+                    <Characters />
                 </div>
                 <div className='row'>
                     <h1>Planets</h1>
                 </div>
                 <div className="row" >
-                    {
-                        <>
-                            <Planets />
-                            <span className="arrowsPl">
-                                <img src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-rouge.png" />
-                                <img style={{ float: "right" }} src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-droite-rouge.png" />
-                            </span>
-                        </>
-                    }
+                    <Planets />
                 </div>
                 <div className='row'>
                     <h1>Vehicles</h1>
                 </div>
                 <div className="row" >
-                    {
-                        <>
-                            <Vehicles />
-                            <span className="arrowsPl">
-                                <img src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-rouge.png" />
-                                <img style={{ float: "right" }} src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-droite-rouge.png" />
-                            </span>
-                        </>
-                    }
+                    <Vehicles />
                 </div>
             </div>
 
